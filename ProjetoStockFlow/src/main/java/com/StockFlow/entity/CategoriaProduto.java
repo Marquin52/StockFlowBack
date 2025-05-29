@@ -11,8 +11,9 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="categoria_produto")
 public class CategoriaProduto {
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id", nullable = false, unique = true)
 	private Long id;
 	
 	@Column(name="nome")
