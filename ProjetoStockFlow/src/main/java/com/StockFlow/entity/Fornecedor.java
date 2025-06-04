@@ -1,50 +1,51 @@
 package com.StockFlow.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "fornecedor")
 public class Fornecedor {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Column(nullable = false)
-	private String nome;
-	
-	@Column(nullable = false)
-	private String cpf_cnpj;
-	
-	@Column(nullable = false)
-	private String telefone;
-	
-	@Lob
-	@Column(nullable = false)
-	private String descricao;
 
-	public long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    @Column(nullable = false, length = 100)
+    private String nome;
 
-	public String getNome() {
-		return nome;
-	}
+    @Column(name = "cpf_cnpj", nullable = false, unique = true, length = 14)
+    private String cpf_cnpj;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    @Column(nullable = false, length = 20)
+    private String telefone;
 
-	public String getCpf_cnpj() {
+    @Column(nullable = false, length = 150)
+    private String email;
+
+    @Lob
+    @Column(name="observacao",nullable=false)
+    private String observacao;
+
+
+   
+	public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+   
+    public String getCpf_cnpj() {
 		return cpf_cnpj;
 	}
 
@@ -53,20 +54,26 @@ public class Fornecedor {
 	}
 
 	public String getTelefone() {
-		return telefone;
-	}
+        return telefone;
+    }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	
-	
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
 }
