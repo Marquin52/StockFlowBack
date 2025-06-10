@@ -43,7 +43,15 @@ public class Usuario {
         return id;
     }
 
-    public void setId(Long id) {
+    public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public void setId(Long id) {
         this.id = id;
     }
 
